@@ -1,0 +1,8 @@
+import time
+import threading
+URL = 'https://dsm6timebot.herokuapp.com' 
+
+    threading.Timer(1200, requests.get(URL)).start()
+    
+
+response = requests.get(URL)
