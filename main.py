@@ -2,6 +2,16 @@ import asyncio,discord
 import os
 from discord.ext import commands 
 from datetime import datetime
+import requests
+import time
+import threading
+URL = 'https://dsm6timebot.herokuapp.com' 
+
+    threading.Timer(1200, requests.get(URL)).start()
+    
+
+
+response = requests.get(URL)
 
 t1=[['1.창체','2.프로','3.프로','4.수학','5.국어','6.국어','7.영어'],
 ['1.컴구', '2.컴구', '3.과학', '4.체육', '5.프로', '6.프로', '7.프로'],
