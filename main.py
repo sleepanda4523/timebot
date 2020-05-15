@@ -2,7 +2,7 @@ import asyncio,discord
 import os
 from discord.ext import commands 
 from datetime import datetime
-import requests
+
 
 
 t1=[['1.창체','2.프로','3.프로','4.수학','5.국어','6.국어','7.영어'],
