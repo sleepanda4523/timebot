@@ -1,4 +1,5 @@
 import asyncio,discord
+import os
 from discord.ext import commands 
 from datetime import datetime
 
@@ -211,5 +212,5 @@ async def 사용방법(ctx):
 @bot.command(name='안녕')
 async def 안녕(ctx):
   await ctx.send('살려주세요')
-
-bot.run('NzA2MTIxMzc3MDIzMDAwNTc3.Xrvhgg.Flxrg6JK8efb8lSUfRqQX1UBm_M')
+access_token = os.environ["BOT_TOKEN"]
+bot.run(access_token)
