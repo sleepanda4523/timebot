@@ -76,6 +76,14 @@ async def 커요미(ctx):
 
 @bot.command(name='1반시간표')
 async def 시간표(ctx):
+  now= datetime.datetime.now()
+  nownine =now+datetime.timedelta(hours=9)
+  n=nownine.weekday()
+  if n==6:
+   m=0
+  else :
+    m=n+1
+  
   i=0
   if n==4:
     while (i<6):
@@ -92,6 +100,14 @@ async def 시간표(ctx):
 
 @bot.command(name='2반시간표')
 async def 시간표(ctx):
+  now= datetime.datetime.now()
+  nownine =now+datetime.timedelta(hours=9)
+  n=nownine.weekday()
+  if n==6:
+   m=0
+  else :
+    m=n+1
+  
   i=0
   if n==4:
     while (i<6):
@@ -108,6 +124,14 @@ async def 시간표(ctx):
 
 @bot.command(name='3반시간표')
 async def 시간표(ctx):
+  now= datetime.datetime.now()
+  nownine =now+datetime.timedelta(hours=9)
+  n=nownine.weekday()
+  if n==6:
+   m=0
+  else :
+    m=n+1
+  
   i=0
   if n==4:
     while (i<6):
@@ -124,6 +148,14 @@ async def 시간표(ctx):
 
 @bot.command(name='4반시간표')
 async def 시간표(ctx):
+  now= datetime.datetime.now()
+  nownine =now+datetime.timedelta(hours=9)
+  n=nownine.weekday()
+  if n==6:
+   m=0
+  else :
+    m=n+1
+  
   i=0
   if n==4:
     while (i<6):
@@ -142,6 +174,15 @@ async def 시간표(ctx):
 
 @bot.command(name='내일1반시간표')
 async def 내일시간표(ctx):
+  now= datetime.datetime.now()
+  nownine =now+datetime.timedelta(hours=9)
+  n=nownine.weekday()
+  if n==6:
+   m=0
+  else :
+    m=n+1
+    
+  
   i=0
   if m==4:
     while (i<6):
@@ -158,6 +199,14 @@ async def 내일시간표(ctx):
 
 @bot.command(name='내일2반시간표')
 async def 내일시간표(ctx):
+  now= datetime.datetime.now()
+  nownine =now+datetime.timedelta(hours=9)
+  n=nownine.weekday()
+  if n==6:
+   m=0
+  else :
+    m=n+1
+  
   i=0
   if m==4:
     while (i<6):
@@ -174,6 +223,14 @@ async def 내일시간표(ctx):
 
 @bot.command(name='내일3반시간표')
 async def 내일시간표(ctx):
+  now= datetime.datetime.now()
+  nownine =now+datetime.timedelta(hours=9)
+  n=nownine.weekday()
+  if n==6:
+   m=0
+  else :
+    m=n+1
+  
   i=0
   if m==4:
     while (i<6):
@@ -190,6 +247,14 @@ async def 내일시간표(ctx):
 
 @bot.command(name='내일4반시간표')
 async def 내일시간표(ctx):
+  now= datetime.datetime.now()
+  nownine =now+datetime.timedelta(hours=9)
+  n=nownine.weekday()
+  if n==6:
+   m=0
+  else :
+    m=n+1
+  
   i=0
   if m==4:
     while (i<6):
@@ -206,14 +271,15 @@ async def 내일시간표(ctx):
 
 
 
-
+"""
 @bot.command(name='실행시간')
 async def 안녕(ctx):
   await ctx.send('주인님이 일어났을 때부터~ P.M 6시까지')
+"""
 
 @bot.command(name='사용방법')
 async def 사용방법(ctx):
-  await ctx.send('``` !1or2or3or4반시간표 :각반시간표를 보여줍니다. 띄어쓰기 없음\n!실행시간 : 실행시간을 보여줍니다\n!내일1or2or3or4반시간표 :각반시간표를 보여줍니다.\n!안녕 : 봇이 응답해줍니다.\n!대마고대표커요미 : 알죠?ㅋㅋ\n!지민이바보 :\n!혜준이능지 :\n!1반대표능지처참\n!4반대표능지처참```')
+  await ctx.send('``` !1or2or3or4반시간표 :각반시간표를 보여줍니다. 띄어쓰기 없음\n!내일1or2or3or4반시간표 :각반시간표를 보여줍니다.\n!안녕 : 봇이 응답해줍니다.\n!대마고대표커요미 : 알죠?ㅋㅋ\n!지민이바보 :\n!혜준이능지 :\n!1반대표능지처참\n!4반대표능지처참```')
 
 @bot.command(name='안녕')
 async def 안녕(ctx):
