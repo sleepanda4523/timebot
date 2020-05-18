@@ -1,7 +1,7 @@
 import asyncio,discord
 import os
 from discord.ext import commands 
-from datetime import datetime
+import datetime
 
 
 
@@ -35,7 +35,11 @@ t4=[['1.창체', '2.영어', '3.프로', '4.프로', '5.컴구', '6.컴구', '7.
 ['있겠냐 4반'],['있겠냐 역시 지민이가문제야']]
 save=[0,0,0,0,0,0,0]
 client = discord.Client()
-n=datetime.today().weekday()
+
+now= datetime.datetime.now()
+nownine =now+datetime.timedelta(hours=9)
+print(nownine)
+n=nownine.weekday()
 if n==6:
   m=0
 else :
