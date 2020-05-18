@@ -43,7 +43,7 @@ n=nownine.weekday()
 if n==6:
   m=0
 else :
-  m=datetime.today().weekday()+1
+  m=n+1
 print(n)
 game = discord.Game("!사용방법")
 bot = commands.Bot(command_prefix='!',activity=game,help_command=None)
