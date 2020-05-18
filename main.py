@@ -50,7 +50,7 @@ bot = commands.Bot(command_prefix='!',activity=game,help_command=None)
 
 @bot.event
 async def on_ready():
-  await bot.change_presence(name="반갑습니다 :D", type=1)
+  await bot.say('```봇 온!```')
 
 
 @bot.command(name='대마고대표커요미')
