@@ -53,7 +53,7 @@ async def on_ready():
 
 @bot.command(name='점심시간')
 async def 점심시간(ctx):
-  await ctx.send('```1학년 점심시간은 12:40분에 먹으러가세요\n 점심시간은 12:10~13:10분입니다.```')
+  await ctx.send('```1학년 점심시간은 12:40분에 먹으러가세요\n 점심시간은 12:10~13:30분입니다.```')
   
 @bot.command(name='저녁시간')
 async def 저녁시간(ctx):
