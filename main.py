@@ -2,7 +2,9 @@ import asyncio,discord
 import os
 from discord.ext import commands 
 import datetime
-
+import requests                  # 웹 페이지의 HTML을 가져오는 모듈
+from bs4 import BeautifulSoup    # HTML을 파싱하는 모듈
+import time
 
 t1=[['1.창체','2.프로','3.프로','4.과학','5.사회','6.음악','7.영어'],
 ['1.컴구', '2.컴구', '3.수학', '4.체육', '5.국어', '6.프로', '7.프로'],
@@ -50,10 +52,32 @@ bot = commands.Bot(command_prefix='!',activity=game,help_command=None)
 @bot.event
 async def on_ready():
   await bot.say('```봇 온!```')
+  
+
+ymd = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+url='https://api.dsm-dms.com/meal/'+ymd+''
+#soup = BeautifulSoup(res.content, 'html.parser')
+data = requests.get(url).json()
+
+dsmfood = data[ymd]
+dsmbreakfast = dsmfood['breakfast']
+
+@bot.command(name='아침급식')
+async def 급식(ctx):
+  await ctx.send('```오늘의 아침급식은 : '+dsmfood['breakfast']+'입니다.```')
+  
+@bot.command(name='점심급식')
+async def 급식(ctx):
+  await ctx.send('```오늘의 점심급식은 : '+dsmfood['lunch']+'입니다.```')
+
+@bot.command(name='저녁급식')
+async def 급식(ctx):
+  await ctx.send('```오늘의 점심급식은 : '+dsmfood['dinner']+'입니다.```')
 
 @bot.command(name='점심시간')
 async def 점심시간(ctx):
   await ctx.send('```1학년 점심시간은 12:40분에 먹으러가세요\n 점심시간은 12:10~13:30분입니다.```')
+
   
 @bot.command(name='저녁시간')
 async def 저녁시간(ctx):
@@ -285,7 +309,7 @@ async def 안녕(ctx):
 
 @bot.command(name='사용방법')
 async def 사용방법(ctx):
-  await ctx.send('``` !1or2or3or4반시간표 :각반시간표를 보여줍니다. 띄어쓰기 없음\n!내일1or2or3or4반시간표 :각반시간표를 보여줍니다.\n!안녕 : 봇이 응답해줍니다.\n!대마고대표커요미 : 알죠?ㅋㅋ\n!혜준이능지 :\n!1반대표능지처참\n!4반대표능지처참\n!점심시간:점심먹는 시간을 알려줍니다.\n!저녁시간:저녁먹는 시간을 알려줍니다.```')
+  await ctx.send('``` !1or2or3or4반시간표 :각반시간표를 보여줍니다. 띄어쓰기 없음\n!내일1or2or3or4반시간표 :각반시간표를 보여줍니다.\n!안녕 : 봇이 응답해줍니다.\n!대마고대표커요미 : 알죠?ㅋㅋ\n!혜준이능지 :\n!1반대표능지처참\n!4반대표능지처참\n!점심시간:점심먹는 시간을 알려줍니다.\n!저녁시간:저녁먹는 시간을 알려줍니다.\n!아침&점심&저녁급식 : 아침,점심,저녁 급식 메뉴를 출력합니다.```')
 
 @bot.command(name='안녕')
 async def 안녕(ctx):
