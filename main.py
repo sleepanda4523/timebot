@@ -54,19 +54,39 @@ url='https://api.dsm-dms.com/meal/'+ymd+''
 data = requests.get(url).json()
 
 ndata = data[ymd]
-print(ndata['breakfast'])
-  
+breakfast = []
+lunch = []
+dinner = []
+j=0;
+for i in ndata['breakfast'] :
+  print(i)
+  breakfast.append(str(i))
+  j+=1
+
+for i in ndata['lunch'] :
+  print(i)
+  lunch.append(str(i))
+
+  j+=1
+print(lunch)
+
+for i in ndata['dinner'] :
+  print(i)
+  dinner.append(str(i))
+  j+=1
+print(dinner)
+
 @bot.command(name='아침급식')
 async def 급식(ctx):
-  await ctx.send('```아침급식은 {} 입니다.```'.format(ndata['breakfast']))
+  await ctx.send('```아침급식은 \n{} 입니다.```'.format('\n'.join(breakfast)))
 
 @bot.command(name='점심급식')
 async def 급식(ctx):
-  await ctx.send('```점심급식은 {} 입니다.```'.format(ndata['lunch']))
+  await ctx.send('```점심급식은 \n{} 입니다.```'.format('\n'.join(lunch)))
 
 @bot.command(name='저녁급식')
 async def 급식(ctx):
-  await ctx.send('```저녁급식은 {} 입니다.```'.format(ndata['dinner']))
+  await ctx.send('```저녁급식은 \n{} 입니다.```'.format('\n'.join(dinner)))
 
 
 @bot.command(name='점심시간')
@@ -302,5 +322,4 @@ async def 사용방법(ctx):
 async def 안녕(ctx):
   await ctx.send('살려주세요')
 access_token = os.environ["BOT_TOKEN"]
-#bot.run('NzA2MTIxMzc3MDIzMDAwNTc3.Xt8Q2Q.QmR1XO_RBrxWWMJcWw_5efYf3EY')
-bot.run("BOT_TOKEN")
+
