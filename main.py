@@ -48,11 +48,25 @@ print(n)
 game = discord.Game("!사용방법")
 bot = commands.Bot(command_prefix='!',activity=game,help_command=None)
 
-@bot.event
-async def on_ready():
-  await bot.say('```봇 온!```')
-  
+ymd = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+url='https://api.dsm-dms.com/meal/'+ymd+''
+#soup = BeautifulSoup(res.content, 'html.parser')
+data = requests.get(url).json()
 
+ndata = data[ymd]
+print(ndata['breakfast'])
+  
+@bot.command(name='아침급식')
+async def 급식(ctx):
+  await ctx.send('```아침급식은 {} 입니다.```'.format(ndata['breakfast']))
+
+@bot.command(name='점심급식')
+async def 급식(ctx):
+  await ctx.send('```점심급식은 {} 입니다.```'.format(ndata['lunch']))
+
+@bot.command(name='저녁급식')
+async def 급식(ctx):
+  await ctx.send('```저녁급식은 {} 입니다.```'.format(ndata['dinner']))
 
 
 @bot.command(name='점심시간')
@@ -288,4 +302,5 @@ async def 사용방법(ctx):
 async def 안녕(ctx):
   await ctx.send('살려주세요')
 access_token = os.environ["BOT_TOKEN"]
-bot.run(access_token)
+#bot.run('NzA2MTIxMzc3MDIzMDAwNTc3.Xt8Q2Q.QmR1XO_RBrxWWMJcWw_5efYf3EY')
+bot.run("BOT_TOKEN")
