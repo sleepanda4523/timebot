@@ -2,8 +2,7 @@ import asyncio,discord
 import os
 from discord.ext import commands 
 import datetime
-import requests                  # 웹 페이지의 HTML을 가져오는 모듈
-from bs4 import BeautifulSoup    # HTML을 파싱하는 모듈
+import requests                  # 웹 페이지의 HTML을 가져오는 모듈    
 import time
 
 t1=[['1.창체','2.프로','3.프로','4.과학','5.사회','6.음악','7.영어'],
