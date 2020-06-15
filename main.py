@@ -1,4 +1,4 @@
-import asyncio,discord
+import discord
 import os
 from discord.ext import commands 
 import datetime
@@ -34,7 +34,6 @@ t4=[['1.창체', '2.영어', '3.프로', '4.프로', '5.컴구', '6.컴구', '7.
 ['1.사회', '2.국어', '3.과학', '4.음악', '5.프로', '6.프로'],
 ['있겠냐 4반'],['있겠냐 역시 지민이가문제야']]
 save=[0,0,0,0,0,0,0]
-client = discord.Client()
 
 now= datetime.datetime.now()
 nownine =now+datetime.timedelta(hours=9)
@@ -45,6 +44,7 @@ if n==6:
 else :
   m=n+1
 print(n)
+
 game = discord.Game("!사용방법")
 bot = commands.Bot(command_prefix='!',activity=game,help_command=None)
 
@@ -323,4 +323,5 @@ async def 사용방법(ctx):
 async def 안녕(ctx):
   await ctx.send('살려주세요')
 access_token = os.environ["BOT_TOKEN"]
+#bot.run('NzA2MTIxMzc3MDIzMDAwNTc3.Xt89HQ.qyn__xrYopLKi3sFm7c_gT-pXiI')
 bot.run('BOT_TOKEN')
