@@ -115,4 +115,5 @@ async def 사용방법(ctx):
 async def 안녕(ctx):
   await ctx.send('```살려주세요```')
         
-bot.run('NzA2MTIxMzc3MDIzMDAwNTc3.Xq1oxw.z5u1oUiFy39RhmE5W1rBhWVg8dY')
+access_token = os.environ["BOT_TOKEN"]
+bot.run('BOT_TOKEN')
